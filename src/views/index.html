@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>" />
+</head>
+<body>
+    
+    <main data-router-wrapper>
+        <div data-router-view="home">
+            <section>
+                <h1>Basic-setup</h1>
+                <div class="h1">Basic-setup</div>
+                <h2>Basic-setup</h2>
+                <div class="h2">Basic-setup</div>
+                <h3>Basic-setup</h3>
+                <div class="h3">Basic-setup</div>
+                <h4>Basic-setup</h4>
+                <div class="h4">Basic-setup</div>
+                <h5>Basic-setup</h5>
+                <div class="h5">Basic-setup</div>
+                <h6>Basic-setup</h6>
+                <div class="h6">Basic-setup</div>
+                <p>Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <div class="p">Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</div>
+            </section>
+        </div>
+    </main>
+
+    <script src="<%= htmlWebpackPlugin.files.chunks.thirdPartyBundle.entry %>"></script>
+    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+</html>

@@ -1,1 +1,1 @@
-# basic-setup
+# webpack-setup
