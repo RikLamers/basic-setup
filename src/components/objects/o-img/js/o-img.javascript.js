@@ -28,18 +28,22 @@ class Img {
                     }
                 }
 
+                // Get all bg img
                 for (let x = 0; x < this.$bgImage.length; x++) {
-                    setTimeout(() => {                        
-                        console.log(this.$bgImage[x]);
-                    }, 1000);
-
-                    // if (this.$img[i].src.match(/\.(jpe?g|png)/)) {
-                    //     let imgUrl = this.$img[i].src.split('.').slice(0, -1)[0];
-                    //     imgUrl = `${imgUrl}.webp`;
-                    //     this.$img[i].src = imgUrl;
-                    // }
+                    if (this.$bgImage[x].getAttribute('data-img').match(/\.(jpe?g|png)/)) {
+                        let bgImgUrl = this.$bgImage[x].getAttribute('data-img').split('.').slice(0, -1)[0];
+                        bgImgUrl = `${bgImgUrl}.webp`;
+                        this.$bgImage[x].style.backgroundImage = `url(${bgImgUrl})`;
+                        this.$bgImage[x].removeAttribute('data-img');
+                    }
                 }
 
+            } else {
+                // Get all bg img
+                for (let x = 0; x < this.$bgImage.length; x++) {
+                    this.$bgImage[x].style.backgroundImage = `url(${this.$bgImage[x].getAttribute('data-img')})`;
+                    this.$bgImage[x].removeAttribute('data-img');
+                }
             }
         });
     }
