@@ -10,33 +10,90 @@ $primary-font-family: $livvic;
 
 html, body {
     font-family: $primary-font-family;
-    color: black;
-    line-height: 1.5;
+    color: color(text);
+    line-height: 1.2;
     font-size: 1.6rem;
+
+    @media (min-width: breakpoint-min(md)) {
+        line-height: 1.5;
+    }
+
 }
 
 h1, .h1 {
-    font-size: 4.8rem;
+    font-size: 3.2rem;
+
+	@media (min-width: breakpoint-min(xs)) {
+        font-size: 3.6rem;
+	}
+
+	@media (min-width: breakpoint-min(md)) {
+        font-size: 4rem;
+	}
+
+	@media (min-width: breakpoint-min(xl)) {
+        font-size: 4.8rem;
+	}
 }
 
 h2, .h2 {
-    font-size: 4rem;
+    font-size: 2.6rem;
+
+	@media (min-width: breakpoint-min(xs)) {
+        font-size: 2.8rem;
+	}
+
+	@media (min-width: breakpoint-min(md)) {
+        font-size: 3.2rem;
+	}
+
+	@media (min-width: breakpoint-min(xl)) {
+        font-size: 4rem;
+	}
 }
 
 h3, .h3 {
-    font-size: 3.6rem;
+    font-size: 2.2rem;
+
+	@media (min-width: breakpoint-min(xs)) {
+        font-size: 2.4rem;
+	}
+
+	@media (min-width: breakpoint-min(md)) {
+        font-size: 2.6rem;
+	}
+
+	@media (min-width: breakpoint-min(xl)) {
+        font-size: 3.2rem;
+    }
 }
 
 h4, .h4 {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
+
+	@media (min-width: breakpoint-min(sm)) {
+        font-size: 2rem;
+	}
+
+	@media (min-width: breakpoint-min(lg)) {
+        font-size: 2.4rem;
+	}
 }
 
 h5, .h5 {
-    font-size: 2rem;
+    font-size: 1.6rem;
+
+	@media (min-width: breakpoint-min(md)) {
+        font-size: 2rem;
+	}
 }
 
 h6, .h6 {
     font-size: 1.6rem;
+
+	@media (min-width: breakpoint-min(md)) {
+        font-size: 1.8rem;
+	}
 }
 
 p, .p {
@@ -47,6 +104,15 @@ p, .p {
 a {
     font-size: 1.6rem;
     text-decoration: none;
+    color: color(primary);
+    cursor: pointer;
+    transition: color 300ms ease;
+
+    &:hover,
+    &:focus {
+        color: darken(color(primary), 10%);
+    }
+
 }
 
 em, i {
