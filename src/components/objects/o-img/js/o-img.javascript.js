@@ -10,9 +10,7 @@ class Img {
         this.$bgImage = document.getElementsByClassName('o-img__bg');
 	}
 
-	eventListeners() {
-
-    }
+	eventListeners() {}
     
     canUseWebP() {
         Modernizr.on('webp', () => {
@@ -49,9 +47,11 @@ class Img {
     }
 
 	initialize() {
-		this.setup();
-        this.eventListeners();
-        this.canUseWebP();
+        this.setup();
+        if (this.$holder) {
+            this.eventListeners();
+            this.canUseWebP();
+        }
 	}
 }
 

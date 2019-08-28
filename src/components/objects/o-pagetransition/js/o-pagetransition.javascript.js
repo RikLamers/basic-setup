@@ -16,8 +16,7 @@ class PageTransition {
 		});
 	}
 
-	eventListeners() {
-    }
+	eventListeners() {}
 
 	initialize() {
         this.setup();
