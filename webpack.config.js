@@ -45,14 +45,14 @@ module.exports = {
                         options: {
                             mozjpeg: {
                                 progressive: true,
-                                quality: 90
+                                quality: 65
                             },
                             optipng: {
                                 enabled: false,
                             },
                             pngquant: {
-                                quality: '75-100',
-                                speed: 5,
+                                quality: '65-90',
+                                speed: 4,
                                 strip: true
                             },
                             gifsicle: {
@@ -61,13 +61,6 @@ module.exports = {
                             },
                             svgo: {
 
-                            },
-                            webp: {
-                                quality: 100,
-                                sharpness: 0,
-                                method: 5,
-                                metadata: 'none',
-                                enabled: true
                             }
                         }
                     }
