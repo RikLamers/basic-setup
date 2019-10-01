@@ -10,15 +10,23 @@ const RemovePlugin = require('remove-files-webpack-plugin');
 module.exports = {
     entry: {
         main: ['./src/index.js'],
-        thirdPartyBundle: ['./src/vendor.js']
+        externals: ['./src/vendor.js']
     },
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: process.env.npm_lifecycle_event === 'build' ? '[name].[chunkhash:9].js' : '[name].[hash:9].js'
     },
     target: 'web',
+    devtool: process.env.npm_lifecycle_event === 'build' ? '' : 'inline-source-map',
     module: {
         rules: [
+            {
+                test: /\.ts?$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "ts-loader"
+                }
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -82,7 +90,6 @@ module.exports = {
             maxModules: 0
         }
     },
-    devtool: process.env.npm_lifecycle_event === 'build' ? '' : 'source-map',
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
