@@ -1,12 +1,11 @@
 @charset "UTF-8";
-
 /* =============================================================================
 	CONFIG
 ============================================================================= */
 
 $module-name: 'hamburger';
 
-$hamburger-color: rgba(255, 255, 255, 1);
+$hamburger-color: color(primary);
 $hamburger-color--fade: rgba(255, 255, 255, 0);
 $hamburger-space-between: 12px;
 $hamburger-width: 35px;
@@ -17,9 +16,23 @@ $hamburger-height: 5px;
 ============================================================================= */
 
 .o-#{$module-name} {
-	position: relative;
+	position: absolute;
 	height: 50px;
 	width: 50px;
+	cursor: pointer;
+
+	&__left {
+		left: 5px;
+	}
+
+	&__center {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&__right {
+		right: 5px;
+	}
 
 	&__menu,
 	&__menu::before,
