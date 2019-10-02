@@ -18,6 +18,9 @@ module.exports = {
     },
     target: 'web',
     devtool: process.env.npm_lifecycle_event === 'build' ? '' : 'inline-source-map',
+    resolve: {
+        extensions: ['.ts', '.js', '.json']
+    },
     module: {
         rules: [
             {
