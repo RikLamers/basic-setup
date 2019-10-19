@@ -5,7 +5,7 @@ class Navigation {
 
 	setup() {
 		this.$holder = document.getElementsByClassName('m-navigation')[0];
-		this.$body = document.getElementsByTagName('body');
+		this.$body = document.getElementsByTagName('body')[0];
 		this.$main = document.getElementsByTagName('main');
 		this.$nav = this.$holder;
 		this.$navButton = document.getElementsByClassName('o-hamburger')[0];
@@ -26,13 +26,13 @@ class Navigation {
 	toggleNav() {
 		if (this.$mobileNavIsVisibile) {
 			this.$navButton.classList.remove('is--active');
-			// this.$body.classList.remove('overflow-hidden-mobile');
+			this.$body.style.overflowY = '';
 			this.$mobileNavIsVisibile = false;
 			this.$navList.classList.remove('is--active');
 
 		} else {
 			this.$navButton.classList.add('is--active');
-			// this.$body.classList.add('overflow-hidden-mobile');
+			this.$body.style.overflowY = 'hidden';
 			this.$mobileNavIsVisibile = true;
 			this.$navList.classList.add('is--active');
 		}
