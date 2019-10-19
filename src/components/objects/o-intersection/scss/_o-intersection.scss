@@ -18,7 +18,7 @@ $object-name: 'intersection';
 
 }
 
-@keyframes animationDown {
+@keyframes animation-down {
 
     from {
         transform: translateY(-100px);
@@ -32,7 +32,7 @@ $object-name: 'intersection';
 
 }
 
-@keyframes animationUp {
+@keyframes animation-up {
 
     from {
         transform: translateY(100px);
@@ -46,7 +46,7 @@ $object-name: 'intersection';
 
 }
 
-@keyframes animationRight {
+@keyframes animation-right {
 
     from {
         transform: translateX(100px);
@@ -60,7 +60,7 @@ $object-name: 'intersection';
 
 }
 
-@keyframes animationLeft {
+@keyframes animation-left {
 
     from {
         transform: translateX(-100px);
