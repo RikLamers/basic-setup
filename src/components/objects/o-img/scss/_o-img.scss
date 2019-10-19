@@ -12,8 +12,8 @@ $object-name: 'img';
 
 .o-#{$object-name}, img {
     margin: 2rem 0;
-    min-width: 100px;
-    min-height: 100px;
+    min-width: 10px;
+    min-height: 10px;
     max-width: 100%;
 
     &__bg {
