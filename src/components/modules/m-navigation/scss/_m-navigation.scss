@@ -12,11 +12,21 @@ $module-name: 'navigation';
 
 .m-#{$module-name} {
 	font-size: 2rem;
+	position: relative;
+	display: flex;
+	flex: 1;
+	min-height: 50px;
 
-	button {
+	.o-hamburger {
 		position: absolute;
 		top: 0px;
-		right: 10px
+		right: 10px;
+		display: block;
+
+		@media (min-width: breakpoint-min(md)) {
+			display: none;
+		}
+
 	}
 
 	&__list {
@@ -34,11 +44,13 @@ $module-name: 'navigation';
 		z-index: 9;
 
 		@media (min-width: breakpoint-min(sm)) {
-			display: block;
+			position: relative;
 			margin-top: 0;
 			text-align: right;
 			height: auto;
 			width: 100%;
+			display: flex;
+			justify-content: flex-end;
 		}
 
 		&.is--active {
