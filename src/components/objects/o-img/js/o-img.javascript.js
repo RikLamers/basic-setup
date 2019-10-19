@@ -48,7 +48,7 @@ class Img {
 
 	initialize() {
         this.setup();
-        if (this.$holder) {
+        if (this.$holder || this.$bgImage || this.$img) {
             this.eventListeners();
             this.canUseWebP();
         }
