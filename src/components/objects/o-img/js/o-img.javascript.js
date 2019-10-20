@@ -4,7 +4,7 @@ class Img {
 	}
 
 	setup() {
-		this.$holder = document.getElementsByClassName('m-img')[0];
+		this.$holder = document.getElementsByClassName('o-img')[0];
         this.$body = document.getElementsByTagName('body');
         this.$img = document.querySelectorAll('img');
         this.$bgImage = document.getElementsByClassName('o-img__bg');
