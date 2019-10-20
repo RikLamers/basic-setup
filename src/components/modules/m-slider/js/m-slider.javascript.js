@@ -5,80 +5,99 @@ class Slider {
 
 	setup() {
 		this.$holder = document.getElementsByClassName('m-slider')[0];
-		this.$body = document.getElementsByTagName('body');
-		this.$sliderItems = document.getElementsByClassName('m-slider__item');
-		this.$sliderModal = document.getElementsByClassName('m-slider__modal')[0];
-		this.$sliderEnlargedImg = document.getElementsByClassName('m-slider__enlarged-img')[0];
-		this.$sliderModalClose = document.getElementsByClassName('m-slider__modal--close')[0];
-		this.$sliderLeftArrow = document.getElementsByClassName('m-slider__left')[0];
-		this.$sliderRightArrow = document.getElementsByClassName('m-slider__right')[0];
-		this.$slideCount = 0;
-		this.$slideCountMax = this.$sliderItems.length - 1;
-	}
+        this.$body = document.getElementsByTagName('body');
+        
+        this.$previous = document.getElementsByClassName('m-slider__previous')[0];
+        this.$next = document.getElementsByClassName('m-slider__next')[0];
+
+        this.$slides = document.getElementsByClassName('m-slider__slide');
+
+        this.$dotlist = document.getElementsByClassName('m-slider__dotlist')[0];
+        this.$dots = null;
+
+        this.$current = 0;
+
+        this.$offset = 4;
+    }
+    
+    init() {
+        for (let i = 0; i < this.$slides.length; i++) {
+            const dot = document.createElement('li');
+
+            dot.setAttribute('class', 'm-slider__dot');
+            this.$dotlist.appendChild(dot);
+        }
+
+        this.$dots = document.getElementsByClassName('m-slider__dot');
+        this.$dots[this.$current].classList.add('is--active');
+        this.eventListeners();
+    }
 
 	eventListeners() {
-		for (let i = 0; i < this.$sliderItems.length; i++) {
-			this.$sliderItems[i].style.left = `${i * this.$holder.offsetWidth}px`;
-			this.$sliderItems[i].addEventListener('click', (e) => {
-				e.preventDefault();
-				this.$sliderModal.classList.add('is--active');
-				this.$body[0].style.overflow = 'hidden';
-				this.$sliderEnlargedImg.src = e.target.style.backgroundImage.split('"')[1];
-			});
-		}
+        this.$previous.addEventListener('click', () => {
+            this.previousSlide();
+        });
 
-		this.$sliderModalClose.addEventListener('click', (e) => {
-			e.preventDefault();
-			this.$body[0].style.overflow = null;
-			this.$sliderModal.classList.remove('is--active');
-		});
+        this.$next.addEventListener('click', () => {
+            this.nextSlide();
+        });
 
-		this.$sliderModal.addEventListener('click', (e) => {
-			if (this.$sliderModal === e.target) {
-				this.$body[0].style.overflow = null;
-				this.$sliderModal.classList.remove('is--active');
-			}
-		});
+        for (let i = 0; i < this.$dots.length; i++) {
+            this.$dots[i].addEventListener('click', () => {
+                this.jumpToSlide(i);
+            });
+        }
+    }
 
-		this.$sliderLeftArrow.addEventListener('click', this.slideLeft.bind(this));
-		this.$sliderRightArrow.addEventListener('click', this.slideRight.bind(this));
-	}
+    previousSlide() {
+        this.$dots[this.$current].classList.remove('is--active');
 
-	slideLeft() {
-		if (this.$slideCount !== 0) {
-			this.$slideCount--;
-			for (let i = 0; i < this.$sliderItems.length; i++) {
-				const currentPos = Number(this.$sliderItems[i].style.left.split('px')[0]);
-				this.$sliderItems[i].style.left = `${currentPos + this.$holder.offsetWidth}px`;
-			}
-		} else {
-			this.$slideCount = this.$slideCountMax;
-			for (let i = 0; i < this.$sliderItems.length; i++) {
-				this.$sliderItems[i].style.left = `-${(this.$slideCountMax - i) * this.$holder.offsetWidth}px`;
-			}
-		}
-	}
+        if (this.$current === 0) {
+            this.$current = this.$dots.length - 1;
+        } else {
+            this.$current--;
+        }
 
-	slideRight () {
-		if (this.$slideCount !== this.$slideCountMax) {
-			this.$slideCount++;
-			for (let i = 0; i < this.$sliderItems.length; i++) {
-				const currentPos = Number(this.$sliderItems[i].style.left.split('px')[0]);
-				this.$sliderItems[i].style.left = `${currentPos - this.$holder.offsetWidth}px`;
-			}
-		} else {
-			this.$slideCount = 0;
-			for (let i = 0; i < this.$sliderItems.length; i++) {
-				this.$sliderItems[i].style.left = `${i * this.$holder.offsetWidth}px`;
-			}
-		}
-	}
+        this.$dots[this.$current].classList.add('is--active');
+
+        this.moveImg();
+    }
+
+    nextSlide() {
+        this.$dots[this.$current].classList.remove('is--active');
+
+        if (this.$current === this.$dots.length - 1) {
+            this.$current = 0;
+        } else {
+            this.$current++;
+        }
+
+        this.$dots[this.$current].classList.add('is--active');
+
+        this.moveImg();
+    }
+
+    jumpToSlide(i) {
+        this.$dots[this.$current].classList.remove('is--active');
+
+        this.$current = i;
+
+        this.$dots[this.$current].classList.add('is--active');
+
+        this.moveImg();
+    }
+
+    moveImg() {
+        for (let i = 0; i < this.$slides.length; i ++) {
+            this.$slides[i].style.transform = `translateX(-${(this.$slides[0].clientWidth * this.$current) + (this.$offset * this.$current)}px)`;
+        }
+    }
 
 	initialize() {
-		this.setup();
-		if (this.$holder) {
-			this.eventListeners();
-		}
+        this.setup();
+        if (this.$holder) {
+            this.init();
+        }
 	}
 }
 
