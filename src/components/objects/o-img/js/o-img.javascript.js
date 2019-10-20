@@ -20,7 +20,7 @@ class Img {
                 // get all img tags
                 for (let i = 0; i < this.$img.length; i++) {
                     if (this.$img[i].src.match(/\.(jpe?g|png)/)) {
-                        let imgUrl = this.$img[i].src.split('.').slice(0, -1)[0];
+                        let imgUrl = this.$img[i].src.split(window.location.origin)[1].split('.').slice(0, -1)[0];
                         imgUrl = `${imgUrl}.webp`;
                         this.$img[i].src = imgUrl;
                     }
