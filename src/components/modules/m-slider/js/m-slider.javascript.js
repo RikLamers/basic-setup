@@ -18,6 +18,12 @@ class Slider {
         this.$current = 0;
 
         this.$offset = 4;
+
+        this.$autoSlide = !!this.$holder.getAttribute('data-autoplay');
+        this.$autoSlideInterval = 5000;
+        if (this.$autoSlide) {
+            this.$interval = setInterval(this.autoSlide.bind(this), this.$autoSlideInterval);
+        }
     }
     
     init() {
@@ -81,6 +87,20 @@ class Slider {
         this.$dots[this.$current].classList.remove('is--active');
 
         this.$current = i;
+
+        this.$dots[this.$current].classList.add('is--active');
+
+        this.moveImg();
+    }
+
+    autoSlide() {
+        this.$dots[this.$current].classList.remove('is--active');
+
+        if (this.$current === this.$dots.length - 1) {
+            this.$current = 0;
+        } else {
+            this.$current++;
+        }
 
         this.$dots[this.$current].classList.add('is--active');
 
