@@ -19,10 +19,12 @@ class Slider {
 
         this.$offset = 4;
 
-        this.$autoSlide = !!this.$holder.getAttribute('data-autoplay');
-        if (this.$autoSlide) {
-            this.$autoSlideInterval = Number(this.$holder.getAttribute('data-interval-time'));
-            this.$interval = setInterval(this.autoSlide.bind(this), this.$autoSlideInterval);
+        if (this.$holder) {
+            this.$autoSlide = !!this.$holder.getAttribute('data-autoplay');
+            if (this.$autoSlide) {
+                this.$autoSlideInterval = Number(this.$holder.getAttribute('data-interval-time'));
+                this.$interval = setInterval(this.autoSlide.bind(this), this.$autoSlideInterval);
+            }
         }
     }
     
