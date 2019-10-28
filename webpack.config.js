@@ -94,6 +94,12 @@ module.exports = {
             template: './src/views/index.html',
             filename: 'index.html'
         }),
+        new HtmlWebpackPlugin({
+            inject: false,
+            hash: true,
+            template: './src/views/about.html',
+            filename: 'about.html'
+        }),
         new ImageminWebpWebpackPlugin({
             config: [{
                 test: /\.(jpe?g|png)/,
