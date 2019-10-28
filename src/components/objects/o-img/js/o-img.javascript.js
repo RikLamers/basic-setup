@@ -1,4 +1,4 @@
-class Img {
+export class Img {
 	constructor() {
 		this.initialize();
 	}

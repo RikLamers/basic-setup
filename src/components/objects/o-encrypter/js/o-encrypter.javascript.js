@@ -1,4 +1,4 @@
-class Encrypter {
+export class Encrypter {
 	constructor() {
 		this.initialize();
 	}

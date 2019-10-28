@@ -1,4 +1,4 @@
-class Intersection {
+export class Intersection {
 	constructor() {
 		this.initialize();
 	}

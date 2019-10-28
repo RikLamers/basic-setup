@@ -1,4 +1,4 @@
-class ActiveTab {
+export class ActiveTab {
 	constructor() {
 		this.initialize();
 	}

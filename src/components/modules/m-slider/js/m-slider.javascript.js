@@ -1,4 +1,4 @@
-class Slider {
+export class Slider {
 	constructor() {
 		this.initialize();
 	}

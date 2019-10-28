@@ -1,4 +1,4 @@
-class TextSlider {
+export class TextSlider {
 	constructor() {
 		this.initialize();
 	}

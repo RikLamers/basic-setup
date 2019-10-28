@@ -1,4 +1,4 @@
-class ConnectionCheck {
+export class ConnectionCheck {
 	constructor() {
 		this.initialize();
 	}

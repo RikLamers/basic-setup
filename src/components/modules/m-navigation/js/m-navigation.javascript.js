@@ -1,4 +1,4 @@
-class Navigation {
+export class Navigation {
 	constructor() {
 		this.initialize();
 	}
@@ -11,6 +11,7 @@ class Navigation {
 		this.$navButton = document.getElementsByClassName('o-hamburger')[0];
 		this.$navList = document.getElementsByClassName('m-navigation__list')[0];
 		this.$navItem = document.getElementsByClassName('m-navigation__item')[0];
+		this.$navLink = document.getElementsByClassName('m-navigation__link');
 		this.$mobileNavIsVisibile = false;
 
 	}
@@ -21,6 +22,14 @@ class Navigation {
 			this.toggleNav();
 		});
 
+		for (let i = 0; i < this.$navLink.length; i++) {
+			this.$navLink[i].addEventListener('click', () => {
+				this.$navButton.classList.remove('is--active');
+				this.$navList.classList.remove('is--active');
+				this.$btnMenu.classList.remove('is--active');
+				this.$mobileNavIsVisibile = false;
+			});
+		}
 	}
 
 	toggleNav() {
