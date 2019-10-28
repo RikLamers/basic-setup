@@ -9,6 +9,7 @@ export class Navigation {
 		this.$main = document.getElementsByTagName('main');
 		this.$nav = this.$holder;
 		this.$navButton = document.getElementsByClassName('o-hamburger')[0];
+		this.$btnMenu = document.getElementsByClassName('o-hamburger__menu')[0];
 		this.$navList = document.getElementsByClassName('m-navigation__list')[0];
 		this.$navItem = document.getElementsByClassName('m-navigation__item')[0];
 		this.$navLink = document.getElementsByClassName('m-navigation__link');
