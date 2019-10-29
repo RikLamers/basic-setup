@@ -1,5 +1,7 @@
 import Highway from '@dogstudio/highway';
-import LayerBottom from '../h/layer-bottom/h.layer-bottom';
+import TriangleFold from '../h/triangle-fold/h.triangle-fold';
+
+
 
 export class PageTransition {
 	constructor() {
@@ -11,7 +13,7 @@ export class PageTransition {
 		this.$body = document.getElementsByTagName('body')[0];
 		this.$h = new Highway.Core({
 			transitions: {
-				default: LayerBottom
+				default: TriangleFold
 			}
 		});
 	}
