@@ -19,5 +19,9 @@ $object-name: 'pagetransition';
     z-index: -1;
 }
 
+@import './layer-bottom/h.layer-bottom';
+@import './layer-left/h.layer-left';
+@import './layer-right/h.layer-right';
+@import './layer-top/h.layer-top';
 @import './lines/h.lines';
 @import './tiles/h.tiles';
