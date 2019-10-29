@@ -1,5 +1,5 @@
 import Highway from '@dogstudio/highway';
-import Lines from '../h/lines/h.lines';
+import Tiles from '../h/tiles/h.tiles';
 
 export class PageTransition {
 	constructor() {
@@ -11,7 +11,7 @@ export class PageTransition {
 		this.$body = document.getElementsByTagName('body')[0];
 		this.$h = new Highway.Core({
 			transitions: {
-				default: Lines
+				default: Tiles
 			}
 		});
 	}
