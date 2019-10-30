@@ -14,10 +14,12 @@ export class Pagination {
         
         this.$postPerPage = 20;
         this.$pages = 1;
-        this.$data = await fetch('https://jsonplaceholder.typicode.com/photos')
-            .then((res) => res.json())
-            .then((data) => data);
-        this.$initPlacedData = await this.placeData(this.$data);
+        if (this.$holder) {
+            this.$data = await fetch('https://jsonplaceholder.typicode.com/photos')
+                .then((res) => res.json())
+                .then((data) => data);
+            this.$initPlacedData = await this.placeData(this.$data);
+        }
 	}
 
 	eventListeners() {
