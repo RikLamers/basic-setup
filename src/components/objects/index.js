@@ -8,3 +8,4 @@ export { default as Img } from './o-img/js/o-img.javascript';
 export { default as Intersection } from './o-intersection/js/o-intersection.javascript';
 export { default as Modal } from './o-modal/js/o-modal.javascript';
 export { default as PageTransition } from './o-pagetransition/js/o-pagetransition.javascript';
+export { default as Pagination } from './o-pagination/js/o-pagination.javascript';
