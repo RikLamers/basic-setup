@@ -3,6 +3,7 @@
 @import '../assets/fonts/fonts.scss';
 
 $primary-font-family: $livvic;
+$headings-uppercase: false;
 
 :root {
     font-size: 62.5%;
@@ -18,6 +19,12 @@ html, body {
         line-height: 1.5;
     }
 
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    @if ($headings-uppercase) {
+        text-transform: uppercase;
+    }
 }
 
 h1, .h1 {

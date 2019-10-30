@@ -1,4 +1,4 @@
-class DetectColorScheme {
+export class DetectColorScheme {
 	constructor() {
 		this.initialize();
 	}

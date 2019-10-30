@@ -1,7 +1,9 @@
 import Highway from '@dogstudio/highway';
-import FadeT from '../h/h.fadeIn';
+import TriangleFold from '../h/triangle-fold/h.triangle-fold';
 
-class PageTransition {
+
+
+export class PageTransition {
 	constructor() {
 		this.initialize();
 	}
@@ -11,7 +13,7 @@ class PageTransition {
 		this.$body = document.getElementsByTagName('body')[0];
 		this.$h = new Highway.Core({
 			transitions: {
-				default: FadeT
+				default: TriangleFold
 			}
 		});
 	}

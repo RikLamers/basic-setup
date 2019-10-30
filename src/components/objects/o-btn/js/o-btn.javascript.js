@@ -1,4 +1,4 @@
-class Btn {
+export class Btn {
 	constructor() {
 		this.initialize();
 	}

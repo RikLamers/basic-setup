@@ -1,10 +1,10 @@
-class Img {
+export class Img {
 	constructor() {
 		this.initialize();
 	}
 
 	setup() {
-		this.$holder = document.getElementsByClassName('m-img')[0];
+		this.$holder = document.getElementsByClassName('o-img')[0];
         this.$body = document.getElementsByTagName('body');
         this.$img = document.querySelectorAll('img');
         this.$bgImage = document.getElementsByClassName('o-img__bg');
@@ -20,7 +20,7 @@ class Img {
                 // get all img tags
                 for (let i = 0; i < this.$img.length; i++) {
                     if (this.$img[i].src.match(/\.(jpe?g|png)/)) {
-                        let imgUrl = this.$img[i].src.split('.').slice(0, -1)[0];
+                        let imgUrl = this.$img[i].src.split(window.location.origin)[1].split('.').slice(0, -1)[0];
                         imgUrl = `${imgUrl}.webp`;
                         this.$img[i].src = imgUrl;
                     }
@@ -48,7 +48,7 @@ class Img {
 
 	initialize() {
         this.setup();
-        if (this.$holder) {
+        if (this.$holder || this.$bgImage || this.$img) {
             this.eventListeners();
             this.canUseWebP();
         }

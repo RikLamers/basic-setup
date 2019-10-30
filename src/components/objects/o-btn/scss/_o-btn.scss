@@ -38,6 +38,10 @@ $object-name: 'btn';
         border-radius: 17.5px;
     }
 
+    &--cornered {
+        border-radius: 0;
+    }
+
     &:hover {
         background-color: lighten(color(primary), 10%);
     }

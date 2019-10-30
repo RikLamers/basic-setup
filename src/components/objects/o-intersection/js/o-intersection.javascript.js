@@ -1,4 +1,4 @@
-class Intersection {
+export class Intersection {
 	constructor() {
 		this.initialize();
 	}
@@ -22,13 +22,16 @@ class Intersection {
                 for (let i = 0; i < entries.length; i++) {
                     const entry = entries[i];
 
-                    let direction = entry.target.getAttribute('data-direction');
-                    direction = direction.charAt(0).toUpperCase() + direction.substring(1);
+                    const direction = entry.target.getAttribute('data-direction');
+
+                    const duration = entry.target.getAttribute('data-duration') ? entry.target.getAttribute('data-duration') : '2000';
 
                     const delay = entry.target.getAttribute('data-delay') ? entry.target.getAttribute('data-delay') : '0';
 
+                    const easing = entry.target.getAttribute('data-ease') ? entry.target.getAttribute('data-ease') : 'ease-out';
+
                     if (entry.isIntersecting) {
-                        entry.target.style.animation = `animation${direction} 2s ${delay}s forwards ease-out`;
+                        entry.target.style.animation = `animation-${direction} ${duration}ms ${delay}ms forwards ${easing}`;
                     }
 
                 }

@@ -18,18 +18,8 @@ module.exports = {
     },
     target: 'web',
     devtool: process.env.npm_lifecycle_event === 'build' ? '' : 'inline-source-map',
-    resolve: {
-        extensions: ['.ts', '.js', '.json']
-    },
     module: {
         rules: [
-            {
-                test: /\.ts?$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "ts-loader"
-                }
-            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -103,6 +93,12 @@ module.exports = {
             hash: true,
             template: './src/views/index.html',
             filename: 'index.html'
+        }),
+        new HtmlWebpackPlugin({
+            inject: false,
+            hash: true,
+            template: './src/views/about.html',
+            filename: 'about.html'
         }),
         new ImageminWebpWebpackPlugin({
             config: [{

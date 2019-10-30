@@ -10,20 +10,33 @@
 </head>
 <body>
 
-    <header class="m-header">
+    <div class="o-pagetransition" data-transition="triangle-fold">
+        <div class="o-pagetransition__triangle"></div>
+        <div class="o-pagetransition__triangle"></div>
+        <div class="o-pagetransition__triangle"></div>
+        <div class="o-pagetransition__triangle"></div>
+    </div>
+
+    <header class="m-header m-header__sticky">
+        <img class="o-logo" src="<%= require('../assets/img/cat.jpeg') %>" alt="Logo" />
         <nav class="m-navigation">
             <div class="o-hamburger o-hamburger__right">
                 <div class="o-hamburger__menu" data-hamburger="modern"></div>
             </div>
             <ul class="m-navigation__list">
                 <li class="m-navigation__item">
-                    <a href="javascript:void(0);">Home</a>
+                    <a class="m-navigation__link" href="/">Home</a>
                 </li>
                 <li class="m-navigation__item">
-                    <a href="javascript:void(0);">About</a>
+                    <a class="m-navigation__link" href="/about.html">About</a>
                 </li>
                 <li class="m-navigation__item">
-                    <a href="javascript:void(0);">Contact</a>
+                    <a class="m-navigation__link" href="javascript:void(0);">Contact</a>
+                </li>
+                <li class="m-navigation__item">
+                    <a class="m-navigation__link" class="o-btn" href="javascript:void(0);">
+                        Bestellen
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -31,7 +44,7 @@
     
     <div class="container">
         <main data-router-wrapper>
-            <div data-router-view="home">
+            <div data-router-view="about">
                 <section>
                     <div class="row">
                         <div class="col-12">
@@ -42,7 +55,7 @@
                             <h5>Basic-setup</h5>
                             <h6>Basic-setup</h6>
                             <p>Sed posuere consectetur est at lobortis.</p>
-                            <a>Consectetur Lorem</a>
+                            <a href="./about.html">Consectetur Lorem</a>
                         </div>
                     </div>
                 </section>

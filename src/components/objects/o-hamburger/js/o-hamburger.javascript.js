@@ -1,4 +1,4 @@
-class Hamburger {
+export class Hamburger {
 	constructor() {
 		this.initialize();
 	}
